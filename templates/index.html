@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52663594-2"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-52663594-2');
+  </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>AstroFarm - Astronomy on the Canary Islands</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'bootstrap.min.css') }}">
+
+    <!-- Additional CSS Files -->    
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'templatemo-style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'owl.css') }}">
+   
+  </head>
+  
+<script src="{{ url_for('static', filename= 'astrotools.js') }}"></script>
+<script language="JavaScript">
+  	document.addEventListener('readystatechange', event => {
+		if (event.target.readyState === "complete") {
+			onLoad();
+		}
+	});
+	
+	function onLoad() {
+		console.log("The page has loaded....");
+		document.getElementById('contact').addEventListener("submit", processContact);
+    renderMenu();
+	}
+
+	function getJSONcontact(url, data, callback) {
+		var xhr = new XMLHttpRequest();
+			xhr.open('POST', url, true);
+			xhr.responseType = 'json';
+			//Send the proper header information along with the request
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+			xhr.onload = function() {
+				var status = xhr.status;
+				if (status === 200) {
+					callback(null, xhr.response);
+				} else {
+					callback(status, xhr.response);
+				}
+			};
+			xhr.send("data=" + JSON.stringify(data));
+	};    
+
+
+	function processContact(e) {
+		e.preventDefault(); 
+		console.log("Processing contact form...");
+		var name = document.getElementById('name').value;
+		var email = document.getElementById('email').value;
+		var message =  document.getElementById('message').value;
+		console.log(name, email, message);
+		var data = { name: name, email: email, message: message};
+		JSONURL = "/contact";
+		getJSONcontact(JSONURL, data, responseFromContact);
+	}
+
+	function responseFromContact(err, data) {
+		console.log("Response received....");
+		console.log(data);
+		document.getElementById("button-text").innerText = "Thank you. We will be in touch shortly.";
+	}
+
+</script>
+
+<body class="is-preload">
+            
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+            
+            <!-- Header -->
+            <header id="header">
+              <div class="logo"> 
+                <a href="index.html">AstroFarm&nbsp;<img src="{{ url_for('static', filename= 'images/AstroFarm_logo_square.png') }}" style="vertical-align:center; width:auto;height:90px;"></a>
+              </div>
+             
+            </header>
+
+		    <!-- Banner -->
+            <section class="main-banner">
+			  <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="banner-content">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="banner-caption">
+                            <h4>Welcome to <em>AstroFarm</em></h4> 
+                            <span>ASTRO-TOURISM &amp; ASTRO-HOSTING</span>
+                            <p>We are an astronomy tourism and telescope hosting site situated on the island of 
+                              <a href="https://www.visitlapalma.es/en/" target="_new">La Palma</a> 
+                              in the <a href="{{ url_for('static', filename= 'images/island_location.png') }}" target="_new">Canary Islands</a>.</p>
+							<div class="primary-button">
+								<a href="#contact">Contact us</a> or 
+							  <a href="aboutus.html">Read more ...</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+			
+
+               <!-- Contact Form -->
+               <section class="contact-form">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <form id="contact">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <fieldset>
+                              <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="" value="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="" value="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="button"><span id="button-text">Send Message</span></button>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </form> 
+                    </div>
+                    <div class="col-md-6">
+                      <div id="map">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d83821.90733928495!2d-17.990243347445755!3d28.792810184830692!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7dce5876ab5d86f8!2sAstroFarm%2C%20La%20Palma!5e0!3m2!1sen!2ses!4v1612460410079!5m2!1sen!2ses" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+			</section>
+       
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+            <!-- Search Box -->
+            <section id="search" class="alt">
+              <form method="get" action="#">
+                <input type="text" name="search" id="search" placeholder="Search..." />
+              </form>
+            </section>
+              
+            <!-- Menu -->
+
+            <nav id="menu">
+              <span id="menuPlaceHolder"></span>
+            </nav>
+
+
+            <!-- Footer -->
+            <footer id="footer">
+              <p class="copyright">Copyright &copy; 2023 AstroFarm S.L.
+              <br>CSS design taken from <a rel="nofollow" href="https://www.facebook.com/templatemo">Template Mo</a></p>
+            </footer>
+
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename= 'jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'transition.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'owl-carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'custom.js') }}"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52663594-2"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-52663594-2');
+  </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>AstroFarm - About us</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'bootstrap.min.css') }}">
+
+    <!-- Additional CSS Files -->    
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'templatemo-style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'owl.css') }}">
+
+  </head>
+  
+<script src="{{ url_for('static', filename= 'astrotools.js') }}"></script>
+<script language="JavaScript">
+  	document.addEventListener('readystatechange', event => {
+		if (event.target.readyState === "complete") {
+			onLoad();
+		}
+	});
+	
+	function onLoad() {
+		console.log("The page has loaded....");
+		renderMenu();
+	}
+
+</script>
+
+<body class="is-preload">
+            
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+            
+            <!-- Header -->
+            <header id="header">
+              <div class="logo"> 
+                <a href="index.html">AstroFarm&nbsp;<img src="{{ url_for('static', filename= 'images/AstroFarm_logo_square.png') }}" style="vertical-align:center; width:auto;height:90px;"></a>
+              </div>    
+            </header>
+
+                 <!-- Page Heading -->
+                 <div class="page-heading">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h1>About us</h1><img src="{{ url_for('static', filename= 'images/AstroFarm_1.png') }}" style="float:right; width:200px; height:auto;">        
+                                      <p style="text-align: justify;">
+                              <strong>Ovidiu Vaduvescu</strong> and <strong>Richard Ashley</strong> are employees at the <strong>Isaac Newton Group</strong>
+                              (<a href="http://www.ing.iac.es">ING</a>), which is an observatory located at the <strong>Roque de los Muchachos</strong> 
+                              on the island of La Palma in the Canary Islands. They work at the
+                              <a href="http://www.ing.iac.es/astronomy/telescopes/wht/">William Herschel</a> and the 
+                              <a href="http://www.ing.iac.es/astronomy/telescopes/int/">Isaac Newton</a> telescopes regularly. 
+                              Both are experienced, professional astronomers who share a love of the sky and are keen backyard astronomers too.
+                            </p>
+                            <p>
+                              <b>AstroFarm S.L.</b> was created in 2020 as a business to bring astro-tourism to La Palma and offer observing and hosting for all people interested in looking at the stars, whether they are professionals, students or hobbyists. 
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+            <!-- Search Box -->
+            <section id="search" class="alt">
+              <form method="get" action="#">
+                <input type="text" name="search" id="search" placeholder="Search..." />
+              </form>
+            </section>
+              
+            <!-- Menu -->
+
+            <nav id="menu">
+               <span id="menuPlaceHolder"></span>
+            </nav>
+
+
+            <!-- Footer -->
+            <footer id="footer">
+              <p class="copyright">Copyright &copy; 2023 AstroFarm S.L.
+              <br>CSS design taken from <a rel="nofollow" href="https://www.facebook.com/templatemo">Template Mo</a></p>
+            </footer>
+
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename= 'jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename= 'browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'transition.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'owl-carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'custom.js') }}"></script>
+
+  </body>
+
+</html>
